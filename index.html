@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario y Evaluación de Salud</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="container">
+        <header>
+            <img src="escudo.png" alt="Escudo de la Universidad de Cundinamarca" id="university-logo">
+            <h1>Registro de Usuario y Evaluación de Salud</h1>
+        </header>
+        <main>
+            <div id="registration">
+                <label for="username">Nombre:</label>
+                <input type="text" id="username" placeholder="Ingresa tu nombre">
+
+                <label for="gender">Género:</label>
+                <select id="gender">
+                    <option value="male">Hombre</option>
+                    <option value="female">Mujer</option>
+                </select>
+
+                <label for="activity-level">¿Entrenas regularmente?</label>
+                <select id="activity-level">
+                    <option value="...">...</option>
+                    <option value="none">No entreno</option>
+                    <option value="occasional">Entreno ocasionalmente</option>
+                    <option value="regular">Entreno regularmente</option>
+                </select>
+
+                <div id="fitness-test" class="card" style="display: none;">
+                    <h2>Test de Condición Física</h2>
+
+                    <label for="weight">Peso (kg):</label>
+                    <input type="number" id="weight" placeholder="kg">
+
+                    <label for="height">Altura (cm):</label>
+                    <input type="number" id="height" placeholder="cm">
+
+                    <label for="age">Edad:</label>
+                    <input type="number" id="age" placeholder="años">
+
+                    <label for="sleep">Horas de sueño:</label>
+                    <input type="number" id="sleep" placeholder="horas">
+
+                    <label for="active">Nivel de Actividad:</label>
+                    <select id="active">
+                        <option value="active">Activo</option>
+                        <option value="sedentary">Sedentario</option>
+                    </select>
+
+                    <!-- Nuevas Preguntas -->
+                    <label for="water-intake">Consumo diario de agua (Vasos):</label>
+                    <input type="number" id="water-intake" placeholder="Vasos" step="0.1">
+
+                    <label for="fruits-veg">Consumo diario de frutas y verduras:</label>
+                    <select id="fruits-veg">
+                        <option value="none">Ninguno</option>
+                        <option value="1-2">1-2 porciones</option>
+                        <option value="3-4">3-4 porciones</option>
+                        <option value="5-or-more">5 o más porciones</option>
+                    </select>
+
+                    <label for="exercise-frequency">Frecuencia del ejercicio:</label>
+                    <select id="exercise-frequency">
+                        <option value="none">Nunca</option>
+                        <option value="rarely">Rara vez</option>
+                        <option value="sometimes">A veces</option>
+                        <option value="often">Frecuentemente</option>
+                        <option value="daily">Diariamente</option>
+                    </select>
+
+                    <label for="diet-quality">Calidad de la dieta:</label>
+                    <select id="diet-quality">
+                        <option value="pobre">Pobre</option>
+                        <option value="regular">Regular</option>
+                        <option value="buena">Buena</option>
+                        <option value="excelente">Excelente</option>
+                    </select>
+
+                    <button onclick="calculate()">Calcular</button>
+                </div>
+
+                <div id="result" class="card" style="display: none;">
+                    <h2>Resultado</h2>
+                    <p id="result-text"></p>
+                    <canvas id="imc-chart"></canvas>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2024 Mi Proyecto Web</p>
+        </footer>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
