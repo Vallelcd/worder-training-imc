@@ -1,3 +1,4 @@
+/* Animaciones */
 @keyframes subtle-glitch {
     0%, 100% { transform: translate(0); }
     25% { transform: translate(-1px, 1px); }
@@ -16,6 +17,7 @@
     100% { background-position: 0% 50%; }
 }
 
+/* Estilos generales */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -42,6 +44,7 @@ body::before {
     animation: floating-particles 30s linear infinite;
 }
 
+/* Estilos del encabezado */
 header {
     background: rgba(26, 58, 109, 0.8);
     color: #f0f0f0;
@@ -77,6 +80,7 @@ header {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
+/* Estilos del contenido principal */
 main {
     display: flex;
     justify-content: center;
@@ -138,7 +142,7 @@ input, select {
     font-size: 16px;
     transition: all 0.3s ease;
     background: rgba(255, 255, 255, 0.9);
-    color: #333; /* Asegura que el texto sea visible */
+    color: #333;
 }
 
 input:focus, select:focus {
@@ -148,7 +152,6 @@ input:focus, select:focus {
     background: white;
 }
 
-/* Estilo para las opciones del select */
 select option {
     color: #333;
     background-color: #ffffff;
@@ -163,27 +166,57 @@ button {
     cursor: pointer;
     font-size: 18px;
     transition: all 0.3s ease;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-/* Media queries para dispositivos móviles */
-@media (max-width: 768px) {
+button:hover {
+    background-color: #3a7bc8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(74, 144, 226, 0.3);
+}
+
+#result {
+    margin-top: 30px;
+    font-size: 20px;
+    color: #000000;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.6);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    backdrop-filter: blur(5px);
+}
+
+/* Footer */
+footer {
+    background: rgba(26, 58, 109, 0.8);
+    backdrop-filter: blur(10px);
+    color: #f0f0f0;
+    text-align: center;
+    padding: 15px;
+    margin-top: auto;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Estilos para móviles */
+@media only screen and (max-width: 768px) {
     header {
         flex-direction: column;
-        align-items: flex-start;
+        text-align: center;
     }
 
     #university-logo {
         width: 80px;
         height: 80px;
-        margin-right: 10px;
+        margin-right: 0;
     }
 
     .header-title {
         font-size: 20px;
-    }
-
-    main {
-        padding: 20px 10px;
     }
 
     h1 {
@@ -193,11 +226,25 @@ button {
 
     .card {
         padding: 20px;
-        margin: 10px 0;
+        margin: 15px 0;
+    }
+
+    input, select {
+        padding: 10px;
     }
 
     button {
-        font-size: 16px;
         padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    #result {
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    footer {
+        padding: 10px;
+        font-size: 14px;
     }
 }
