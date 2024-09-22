@@ -1,4 +1,5 @@
 /* Animaciones */
+/* Animaciones */
 @keyframes subtle-glitch {
     0%, 100% { transform: translate(0); }
     25% { transform: translate(-1px, 1px); }
@@ -17,7 +18,6 @@
     100% { background-position: 0% 50%; }
 }
 
-/* Estilos generales */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -44,12 +44,10 @@ body::before {
     animation: floating-particles 30s linear infinite;
 }
 
-/* Estilos del encabezado */
 header {
     background: rgba(26, 58, 109, 0.8);
     color: #f0f0f0;
-    padding: 20px;
-    position: relative;
+    padding: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -67,43 +65,37 @@ header {
 }
 
 #university-logo {
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
     object-fit: contain;
-    margin-right: 20px;
+    margin-right: 10px;
     animation: subtle-glitch 8s infinite;
 }
 
 .header-title {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* Estilos del contenido principal */
 main {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 40px 20px;
-    position: relative;
-    z-index: 1;
+    padding: 20px;
 }
 
 h1 {
     text-align: center;
     color: #ffffff;
-    font-size: 36px;
-    margin-bottom: 30px;
+    font-size: 28px;
+    margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     width: 100%;
-    display: flex;
-    justify-content: center;
     background: rgba(26, 58, 109, 0.6);
-    padding: 15px;
+    padding: 10px;
     border-radius: 10px;
-    backdrop-filter: blur(5px);
 }
 
 .card {
@@ -112,9 +104,9 @@ h1 {
     border-radius: 20px;
     border: none;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    margin: 20px 0;
-    width: 100%;
+    padding: 20px;
+    margin: 15px 0;
+    width: 90%;
     max-width: 500px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -126,7 +118,7 @@ h1 {
 
 label {
     display: block;
-    margin-top: 15px;
+    margin-top: 10px;
     margin-bottom: 5px;
     font-weight: bold;
     color: #333;
@@ -134,15 +126,13 @@ label {
 
 input, select {
     width: 100%;
-    padding: 12px;
+    padding: 10px;
     border-radius: 8px;
     border: 1px solid rgba(74, 144, 226, 0.3);
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     box-sizing: border-box;
     font-size: 16px;
-    transition: all 0.3s ease;
     background: rgba(255, 255, 255, 0.9);
-    color: #333;
 }
 
 input:focus, select:focus {
@@ -152,20 +142,14 @@ input:focus, select:focus {
     background: white;
 }
 
-select option {
-    color: #333;
-    background-color: #ffffff;
-}
-
 button {
     background-color: #4a90e2;
     color: white;
     border: none;
     border-radius: 8px;
-    padding: 12px 24px;
+    padding: 10px 20px;
     cursor: pointer;
-    font-size: 18px;
-    transition: all 0.3s ease;
+    font-size: 16px;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -178,73 +162,45 @@ button:hover {
 }
 
 #result {
-    margin-top: 30px;
-    font-size: 20px;
+    margin-top: 20px;
+    font-size: 18px;
     color: #000000;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     background: rgba(255, 255, 255, 0.6);
-    padding: 15px;
+    padding: 10px;
     border-radius: 10px;
     text-align: center;
-    backdrop-filter: blur(5px);
 }
 
-/* Footer */
 footer {
     background: rgba(26, 58, 109, 0.8);
-    backdrop-filter: blur(10px);
     color: #f0f0f0;
     text-align: center;
     padding: 15px;
     margin-top: auto;
-    position: relative;
-    bottom: 0;
-    width: 100%;
 }
 
-/* Estilos para móviles */
-@media only screen and (max-width: 768px) {
-    header {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    #university-logo {
-        width: 80px;
-        height: 80px;
-        margin-right: 0;
-    }
-
-    .header-title {
-        font-size: 20px;
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+    header, main, footer {
+        padding: 10px;
     }
 
     h1 {
-        font-size: 28px;
-        padding: 10px;
+        font-size: 24px;
     }
 
     .card {
-        padding: 20px;
-        margin: 15px 0;
+        padding: 15px;
     }
 
-    input, select {
-        padding: 10px;
-    }
-
-    button {
-        padding: 10px 20px;
-        font-size: 16px;
-    }
-
-    #result {
-        font-size: 18px;
-        padding: 10px;
-    }
-
-    footer {
-        padding: 10px;
+    input, select, button {
         font-size: 14px;
+        padding: 8px;
+    }
+
+    #university-logo {
+        width: 60px;
+        height: 60px;
     }
 }
