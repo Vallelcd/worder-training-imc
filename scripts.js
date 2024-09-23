@@ -40,15 +40,15 @@ function calculate() {
         scientificComment = 'La investigación muestra que la obesidad está asociada con un mayor riesgo de varias enfermedades crónicas.';
         scientificLink = 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4859313/';
     }
-
-    let healthAssessment = `Tu salud parece ser `;
     
+    let healthAssessment = `Tu Etapa es `;
+
     if (age < 18) {
-        healthAssessment += 'en desarrollo. ';
+        healthAssessment += 'niñez.';
     } else if (age < 65) {
-        healthAssessment += 'en la etapa adulta. ';
+        healthAssessment += 'en la etapa adulta.';
     } else {
-        healthAssessment += 'en la etapa senior. ';
+        healthAssessment += 'en la etapa senior.';
     }
     
     healthAssessment += `Tu IMC es ${imc.toFixed(2)} (${condition}). ${scientificComment} `;
@@ -126,7 +126,7 @@ if (exerciseFrequency === 'none') {
     'Para más información, <a href="https://scielo.isciii.es/scielo.php?script=sci_arttext&pid=S1135-57272011000400001" target="_blank">Ver estudio</a>.';
 } else if (exerciseFrequency === 'rarely') {
     healthAssessment += 'Has indicado que rara vez haces ejercicio. Incluso pequeñas cantidades de actividad física pueden tener beneficios para la salud, pero aumentar la frecuencia es altamente recomendable. ' +
-    'Para más información, <a href="https://www.bbc.com/mundo/noticias-58823922." target="_blank">Ver estudio</a>.';
+    'Para más información, <a href="https://www.bbc.com/mundo/noticias-58823922" target="_blank">Ver estudio</a>.';
 } else if (exerciseFrequency === 'sometimes') {
     healthAssessment += 'Has indicado que a veces haces ejercicio. La investigación sugiere que aumentar la consistencia de tus entrenamientos puede mejorar significativamente tu salud cardiovascular y bienestar general. ' +
     'Para más información, <a href="https://dialnet.unirioja.es/descarga/articulo/6369972.pdf" target="_blank">Ver estudio</a>.';
