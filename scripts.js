@@ -110,20 +110,27 @@ function displayResults(healthAssessment) {
 function drawChart(imc) {
     const ctx = document.getElementById('imc-chart').getContext('2d');
     
-    const userCategory = IMC_CATEGORIES.find(cat => imc <= cat.maxValue);
-    const userColor = userCategory ? userCategory.color : IMC_CATEGORIES[IMC_CATEGORIES.length - 1].color;
+    const categories = [
+        { label: 'Bajo peso', maxValue: 18.5, color: '#87CEEB' },
+        { label: 'Normal', maxValue: 24.9, color: '#4CAF50' },
+        { label: 'Sobrepeso', maxValue: 29.9, color: '#FFCE56' },
+        { label: 'Obesidad', maxValue: Infinity, color: '#FF6384' }
+    ];
 
-    const barColors = IMC_CATEGORIES.map(cat => 
+    const userCategory = categories.find(cat => imc <= cat.maxValue);
+    const userColor = userCategory ? userCategory.color : categories[categories.length - 1].color;
+
+    const barColors = categories.map(cat => 
         cat === userCategory ? userColor : cat.color
     );
 
     new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: IMC_CATEGORIES.map(cat => cat.label),
+            labels: categories.map(cat => cat.label),
             datasets: [{
                 label: 'IMC',
-                data: IMC_CATEGORIES.map(cat => cat.maxValue),
+                data: categories.map(cat => cat.maxValue),
                 backgroundColor: barColors,
                 borderRadius: 10,
                 barThickness: 30
