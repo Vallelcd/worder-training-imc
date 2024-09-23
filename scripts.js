@@ -40,15 +40,15 @@ function calculate() {
         scientificComment = 'La investigación muestra que la obesidad está asociada con un mayor riesgo de varias enfermedades crónicas.';
         scientificLink = 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4859313/';
     }
-    
-    let healthAssessment = `Tu Etapa es `;
 
+    let healthAssessment = `Tu edad me indica que estas `;
+    
     if (age < 18) {
-        healthAssessment += 'niñez.';
+        healthAssessment += 'en desarrollo. ';
     } else if (age < 65) {
-        healthAssessment += 'en la etapa adulta.';
+        healthAssessment += 'en la etapa adulta. ';
     } else {
-        healthAssessment += 'en la etapa senior.';
+        healthAssessment += 'en la etapa senior. ';
     }
     
     healthAssessment += `Tu IMC es ${imc.toFixed(2)} (${condition}). ${scientificComment} `;
@@ -157,63 +157,70 @@ if (exerciseFrequency === 'none') {
     document.getElementById('result-text').innerHTML = healthAssessment;
     document.getElementById('result').style.display = 'block';
 
-    function drawChart(imc) {
-        const ctx = document.getElementById('imc-chart').getContext('2d');
-        
-        const categories = [
-            { label: 'Bajo peso', maxValue: 18.5, color: '#87CEEB' },
-            { label: 'Normal', maxValue: 24.9, color: '#4CAF50' },
-            { label: 'Sobrepeso', maxValue: 29.9, color: '#FFCE56' },
-            { label: 'Obesidad', maxValue: Infinity, color: '#FF6384' }
-        ];
+    drawChart(imc);
+}
+function drawChart(imc) {
+    const ctx = document.getElementById('imc-chart').getContext('2d');
     
-        const userCategory = categories.find(cat => imc <= cat.maxValue);
-        const userColor = userCategory ? userCategory.color : categories[categories.length - 1].color;
-    
-        const barColors = categories.map(cat => 
-            cat === userCategory ? userColor : cat.color
-        );
-    
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: categories.map(cat => cat.label),
-                datasets: [{
-                    label: 'IMC',
-                    data: categories.map(cat => cat.maxValue),
-                    backgroundColor: barColors,
-                    borderRadius: 10,
-                    barThickness: 30
-                }]
+    let barColors = ['#87CEEB', '#4CAF50', '#FFCE56', '#FF6384'];
+    let userIMCIndex, userColor;
+
+    if (imc < 18.5) {
+        barColors[0] = '#0000FF';
+        userIMCIndex = 0;
+        userColor = '#0000FF';
+    } else if (imc < 24.9) {
+        barColors[1] = '#008000';
+        userIMCIndex = 1;
+        userColor = '#008000';
+    } else if (imc < 29.9) {
+        barColors[2] = '#FFD700';
+        userIMCIndex = 2;
+        userColor = '#FFD700';
+    } else {
+        barColors[3] = '#FF0000';
+        userIMCIndex = 3;
+        userColor = '#FF0000';
+    }
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Bajo peso', 'Normal', 'Sobrepeso', 'Obesidad'],
+            datasets: [{
+                label: 'IMC',
+                data: [18.5, 24.9, 29.9, 34.9],
+                backgroundColor: barColors,
+                borderRadius: 10,
+                barThickness: 30
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
             },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: Math.max(35, imc + 5)  // Ajusta el máximo del eje Y
-                    }
-                },
-                plugins: {
-                    annotation: {
-                        annotations: {
-                            line1: {
-                                type: 'line',
-                                yMin: imc,
-                                yMax: imc,
-                                borderColor: userColor,
-                                borderWidth: 2,
-                                label: {
-                                    content: `Tu IMC: ${imc.toFixed(2)}`,
-                                    enabled: true,
-                                    position: 'center',
-                                    backgroundColor: userColor,
-                                    color: 'white'
-                                }
+            plugins: {
+                annotation: {
+                    annotations: {
+                        line1: {
+                            type: 'line',
+                            yMin: imc,
+                            yMax: imc,
+                            borderColor: userColor,
+                            borderWidth: 2,
+                            label: {
+                                content: `Tu IMC está aquí: ${imc.toFixed(2)}`,
+                                enabled: true,
+                                position: 'center',
+                                backgroundColor: userColor,
+                                color: 'white'
                             }
                         }
                     }
                 }
             }
-        });
-    }
-}
+        }
+    });
+} 
