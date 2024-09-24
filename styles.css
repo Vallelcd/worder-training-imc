@@ -207,7 +207,7 @@ footer {
     overflow: hidden; /* Asegura que no haya desbordamiento horizontal */
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1080px) {
     .social-icons {
         overflow: hidden;
         right: 10px;
@@ -222,7 +222,7 @@ footer {
 }
 
 /* Ajustes para móviles */
-@media (max-width: 600px) {
+@media (max-width: 1080px) {
     header, main, footer {
         padding: 10px;
     }
