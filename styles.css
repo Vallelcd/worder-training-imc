@@ -1,10 +1,8 @@
-/* Animaciones */
-/* Animaciones */
 @keyframes subtle-glitch {
     0%, 100% { transform: translate(0); }
-    25% { transform: translate(-15px, 15px); }
-    50% { transform: translate(15px, -15px); }
-    75% { transform: translate(-15px, -15px); }
+    25% { transform: translate(-10px, 10px); }
+    50% { transform: translate(10px, -10px); }
+    75% { transform: translate(-10px, -10px); }
 }
 
 @keyframes floating-particles {
@@ -28,7 +26,7 @@ body {
     color: #000000;
     min-height: 100vh;
     position: relative;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Evitar scroll horizontal */
 }
 
 body::before {
@@ -180,8 +178,51 @@ footer {
     margin-top: auto;
 }
 
+/* Ajustes de los íconos sociales */
+.social-icons {
+    position: absolute;
+    top: 130px;
+    right: 20px;
+    transform: translateY(0%);
+    gap: 40px;
+}
+
+.social-icons a {
+    display: block;
+}
+
+.social-icons img {
+    overflow: hidden;
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
+    transform: scale(1.1);
+}
+
+/* Evitar que los íconos se muevan o desplacen horizontalmente */
+.social-icons {
+    overflow: hidden; /* Asegura que no haya desbordamiento horizontal */
+}
+
+@media (max-width: 600px) {
+    .social-icons {
+        overflow: hidden;
+        right: 10px;
+        gap: 15px;
+    }
+
+    .social-icons img {
+        overflow: hidden;
+        width: 35px;
+        height: 35px;
+    }
+}
+
 /* Ajustes para móviles */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     header, main, footer {
         padding: 10px;
     }
@@ -200,7 +241,7 @@ footer {
     }
 
     #university-logo {
-        width: 90px;
-        height: 90px;
+        width: 80px;
+        height: 80px;
     }
 }
